@@ -1,16 +1,20 @@
 Bora de principios 🚀
 
-# S.O.L.I.D
+- [S => Single responsability principle](#s--single-responsability-principle)
+- [O => Open closed principle](#o--open-closed-principle)
+- [L - Liskov substitution principle](#l---liskov-substitution-principle)
+- [I - Interface segregation principle](#i---interface-segregation-principle)
+- [D - Dependency inversion principle](#d---dependency-inversion-principle)
 
 # S => Single responsability principle
-Principio da responsabilidade unica. Cara uma classe/função deve fazer apenas uma coisa, e faze-la bem. Nada de criar funções com multiplas funcionalidades ou criar 'god class' que fazem tudo. 
+Principio da responsabilidade unica. Cara uma classe/função deve fazer apenas uma coisa, e faze-la bem. Nada de criar funções com multiplas funcionalidades ou criar 'god class' que fazem tudo.
 
 Separe as coisas, para que cada funcionalidade fique isolada em seu devido lugar, assim o código ficará mais fácil de ser lido e receber sua futura manutenção :3
 
 # O => Open closed principle
 Entidades devem estar abertas para extenções mas fechadas para modificações.
 
-Temos o código original, logo tal código não deve ser alterado quando precisamos de novas funcionalidades, ao invés de alterarmos tal código, é mais viavél extender a funcionalidade de alguma outra entidade. 
+Temos o código original, logo tal código não deve ser alterado quando precisamos de novas funcionalidades, ao invés de alterarmos tal código, é mais viavél extender a funcionalidade de alguma outra entidade.
 
 > Alterar uma classe existente para introduzir uma nova funcionalidade, trás consigo o risco da criação de bugs em tal entidade
 
@@ -20,7 +24,7 @@ Como dito pelo guru Uncle Bob
 
 > Separe o comportamento extensível por trás de uma interface e inverta as dependências.
 
-exemplo: 
+exemplo:
 ```ts
 interface CustomerProtocol {
 	getName(): string;
@@ -41,7 +45,7 @@ class Customer implements CustomerProtocol {
 	constructor(name: string) {
 		this.name = name;
 	}
-	
+
 	getName(): string {
 		return this.name;
 	}
@@ -68,19 +72,19 @@ class Camelo extends Animal {
     return `${this.icone} ${this._nome}`;
   }
 }
-  
+
 class Zebra extends Animal {
   private icone = '🦓';
-  
+
   get nome(): string {
     return `${this.icone} ${this._nome}`;
   }
 }
-  
+
 const animal = new Animal('Animal');
 const camelo = new Camelo('camelo');
 const zebra = new Zebra('zebra');
-  
+
 console.log(animal.nome);
 console.log(camelo.nome);
 console.log(zebra.nome);
@@ -94,7 +98,7 @@ Principio da segragação de interface - Uma classe não deve ser forçada a imp
 É melhor criar interfaces especificas, ao ivés de criar interfaces genériacas
 
 # D - Dependency inversion principle
-Principio da inversão de deprendencia - Entidades não devem depender de classes concretas, mas sim de interfaces/contratos. 
+Principio da inversão de deprendencia - Entidades não devem depender de classes concretas, mas sim de interfaces/contratos.
 
 De acordo com o Uncle Bob
 
@@ -102,10 +106,10 @@ De acordo com o Uncle Bob
 
 > Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações
 
-Se tratando de POO: 
+Se tratando de POO:
 
 > Programe para uma interface e não para uma implementação
 
-Logo classes sempre devem implementar uma interface ao invés de implementar uma classe concreta. Dessa maneira, temos um código desacoplado e propicio a testes. 
+Logo classes sempre devem implementar uma interface ao invés de implementar uma classe concreta. Dessa maneira, temos um código desacoplado e propicio a testes.
 
 ![](img/interfaces.png)
